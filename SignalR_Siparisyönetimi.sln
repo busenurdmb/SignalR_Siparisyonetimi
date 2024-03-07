@@ -3,9 +3,35 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34212.112
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{75C7B668-91EE-41A8-88B1-951662053A53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Core\Domain\Domain.csproj", "{AD015AF9-C225-4CA5-BC2E-7CA322D90702}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{84995FD3-E7EE-41D0-B8F4-D074D851F67D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence", "Infrastructure\Persistence\Persistence.csproj", "{ACEAD220-571B-4002-9926-114F7F693B1F}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD015AF9-C225-4CA5-BC2E-7CA322D90702}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD015AF9-C225-4CA5-BC2E-7CA322D90702}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD015AF9-C225-4CA5-BC2E-7CA322D90702}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD015AF9-C225-4CA5-BC2E-7CA322D90702}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACEAD220-571B-4002-9926-114F7F693B1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACEAD220-571B-4002-9926-114F7F693B1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACEAD220-571B-4002-9926-114F7F693B1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACEAD220-571B-4002-9926-114F7F693B1F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AD015AF9-C225-4CA5-BC2E-7CA322D90702} = {75C7B668-91EE-41A8-88B1-951662053A53}
+		{ACEAD220-571B-4002-9926-114F7F693B1F} = {84995FD3-E7EE-41D0-B8F4-D074D851F67D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8324F19E-8B2D-47EE-B246-55683A764E32}
