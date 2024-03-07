@@ -1,6 +1,8 @@
-﻿namespace Domain.Entities
+﻿using Domain.Abstract;
+
+namespace Domain.Entities
 {
-    public class Feature
+    public class Feature:IEntity
     {
         public int FeatureID { get; set; }
         public string Title1 { get; set; }

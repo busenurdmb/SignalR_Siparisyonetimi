@@ -1,6 +1,8 @@
-﻿namespace Domain.Entities
+﻿using Domain.Abstract;
+
+namespace Domain.Entities
 {
-    public class Discount
+    public class Discount:IEntity
     {
         public int DiscountID { get; set; }
         public string Title { get; set; }

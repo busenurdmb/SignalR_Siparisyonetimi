@@ -1,6 +1,8 @@
-﻿namespace Domain.Entities
+﻿using Domain.Abstract;
+
+namespace Domain.Entities
 {
-    public class Booking
+    public class Booking:IEntity
     {
         public int BookingID { get; set; }
         public string Name { get; set; }

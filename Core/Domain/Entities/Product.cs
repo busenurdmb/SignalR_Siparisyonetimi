@@ -1,6 +1,8 @@
-﻿namespace Domain.Entities
+﻿using Domain.Abstract;
+
+namespace Domain.Entities
 {
-    public class Product
+    public class Product:IEntity
     {
         public int ProductID { get; set; }
         public string ProductName { get; set; }

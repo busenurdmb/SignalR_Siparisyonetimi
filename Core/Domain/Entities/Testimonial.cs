@@ -1,6 +1,8 @@
-﻿namespace Domain.Entities
+﻿using Domain.Abstract;
+
+namespace Domain.Entities
 {
-    public class Testimonial
+    public class Testimonial:IEntity
     {
         public int TestimonialID { get; set; }
         public string Name { get; set; }

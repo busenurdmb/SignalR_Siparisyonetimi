@@ -1,6 +1,8 @@
-﻿namespace Domain.Entities
+﻿using Domain.Abstract;
+
+namespace Domain.Entities
 {
-    public class Contact
+    public class Contact:IEntity
     {
         public int ContactID { get; set; }
         public string Location { get; set; }

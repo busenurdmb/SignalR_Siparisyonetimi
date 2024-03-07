@@ -1,6 +1,8 @@
-﻿namespace Domain.Entities
+﻿using Domain.Abstract;
+
+namespace Domain.Entities
 {
-    public class About
+    public class About:IEntity
     {
         public int AboutID { get; set; }
         public string ImageUrl { get; set; }
