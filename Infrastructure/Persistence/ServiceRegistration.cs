@@ -20,6 +20,12 @@ namespace Persistence
             services.AddScoped<IAboutRepository, AboutRepository>();
             services.AddScoped<IBookingRepository, BookingRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IContactRepository, ContactRepository>();
+            services.AddScoped<IDiscountRepository, DiscountRepository>();
+            services.AddScoped<IFeatureRepository, FeatureRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<ISocialMediaRepository, SocialMediaRepository>();
+            services.AddScoped<ITestimonialRepository, TestimonialRepository>();
             services.AddScoped<SignalRContext>();
         }
     }

@@ -179,7 +179,7 @@ namespace Persistence.Migrations
                     b.ToTable("Discounts");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Feature", b =>
+            modelBuilder.Entity("Domain.Entities.Features", b =>
                 {
                     b.Property<int>("FeatureID")
                         .ValueGeneratedOnAdd()
