@@ -32,13 +32,13 @@ namespace WebAPI.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetBooking(int id)
         {
-            GetByIdBookingQuery getByIdBooking = new() { Id = id };
+          GetByIdBookingQuery getByIdBooking = new() { Id = id };
 
             var value = await _mediator.Send(getByIdBooking);
             return Ok(value);
-        }
+    }
 
-        [HttpPost]
+    [HttpPost]
         public async Task<IActionResult> Add(CreatedBookingCommand createdBookingCommand)
         {
             CreatedBookingResponse response = await _mediator.Send(createdBookingCommand);

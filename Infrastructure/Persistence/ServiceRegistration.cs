@@ -19,6 +19,7 @@ namespace Persistence
             //});
             services.AddScoped<IAboutRepository, AboutRepository>();
             services.AddScoped<IBookingRepository, BookingRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<SignalRContext>();
         }
     }

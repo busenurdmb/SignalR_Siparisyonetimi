@@ -45,7 +45,7 @@ namespace Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Categories",
+                name: "Categories  ",
                 columns: table => new
                 {
                     CategoryID = table.Column<int>(type: "int", nullable: false)
@@ -164,7 +164,7 @@ namespace Persistence.Migrations
                     table.ForeignKey(
                         name: "FK_Products_Categories_CategoryID",
                         column: x => x.CategoryID,
-                        principalTable: "Categories",
+                        principalTable: "Categories  ",
                         principalColumn: "CategoryID",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -203,7 +203,7 @@ namespace Persistence.Migrations
                 name: "Testimonials");
 
             migrationBuilder.DropTable(
-                name: "Categories");
+                name: "Categories  ");
         }
     }
 }

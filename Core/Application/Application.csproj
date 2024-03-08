@@ -16,4 +16,43 @@
     <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Mediator\Contact\Commands\Create\" />
+    <Folder Include="Features\Mediator\Contact\Commands\Delete\" />
+    <Folder Include="Features\Mediator\Contact\Commands\Update\" />
+    <Folder Include="Features\Mediator\Contact\Profiles\" />
+    <Folder Include="Features\Mediator\Contact\Queries\GetById\" />
+    <Folder Include="Features\Mediator\Contact\Queries\GetList\" />
+    <Folder Include="Features\Mediator\Discount\Commands\Create\" />
+    <Folder Include="Features\Mediator\Discount\Commands\Delete\" />
+    <Folder Include="Features\Mediator\Discount\Commands\Update\" />
+    <Folder Include="Features\Mediator\Discount\Profiles\" />
+    <Folder Include="Features\Mediator\Discount\Queries\GetById\" />
+    <Folder Include="Features\Mediator\Discount\Queries\GetList\" />
+    <Folder Include="Features\Mediator\Feature\Commands\Create\" />
+    <Folder Include="Features\Mediator\Feature\Commands\Delete\" />
+    <Folder Include="Features\Mediator\Feature\Commands\Update\" />
+    <Folder Include="Features\Mediator\Feature\Profiles\" />
+    <Folder Include="Features\Mediator\Feature\Queries\GetById\" />
+    <Folder Include="Features\Mediator\Feature\Queries\GetList\" />
+    <Folder Include="Features\Mediator\Product\Commands\Create\" />
+    <Folder Include="Features\Mediator\Product\Commands\Delete\" />
+    <Folder Include="Features\Mediator\Product\Commands\Update\" />
+    <Folder Include="Features\Mediator\Product\Profiles\" />
+    <Folder Include="Features\Mediator\Product\Queries\GetById\" />
+    <Folder Include="Features\Mediator\Product\Queries\GetList\" />
+    <Folder Include="Features\Mediator\SocialMedia\Commands\Create\" />
+    <Folder Include="Features\Mediator\SocialMedia\Commands\Delete\" />
+    <Folder Include="Features\Mediator\SocialMedia\Commands\Update\" />
+    <Folder Include="Features\Mediator\SocialMedia\Profiles\" />
+    <Folder Include="Features\Mediator\SocialMedia\Queries\GetById\" />
+    <Folder Include="Features\Mediator\SocialMedia\Queries\GetList\" />
+    <Folder Include="Features\Mediator\Testimonial\Commands\Create\" />
+    <Folder Include="Features\Mediator\Testimonial\Commands\Delete\" />
+    <Folder Include="Features\Mediator\Testimonial\Commands\Update\" />
+    <Folder Include="Features\Mediator\Testimonial\Profiles\" />
+    <Folder Include="Features\Mediator\Testimonial\Queries\GetById\" />
+    <Folder Include="Features\Mediator\Testimonial\Queries\GetList\" />
+  </ItemGroup>
+
 </Project>
