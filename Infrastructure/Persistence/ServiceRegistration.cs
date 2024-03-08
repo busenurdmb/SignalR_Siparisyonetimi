@@ -18,6 +18,7 @@ namespace Persistence
             //    opt.UseSqlServer(configuration.GetConnectionString("Local"));
             //});
             services.AddScoped<IAboutRepository, AboutRepository>();
+            services.AddScoped<IBookingRepository, BookingRepository>();
             services.AddScoped<SignalRContext>();
         }
     }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Features.Mediator.Abouts.Queries.GetList
+namespace Application.Features.Mediator.Abouts.Commands.Create
 {
-    public class GetListAboutListItemDto
+    public class CreatedAboutResponse
     {
         public int AboutID { get; set; }
         public string ImageUrl { get; set; }
