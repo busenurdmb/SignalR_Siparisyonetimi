@@ -38,7 +38,7 @@ namespace WebAPI.Controllers
             return Ok(value);
     }
 
-    [HttpPost]
+       [HttpPost]
         public async Task<IActionResult> Add(CreatedBookingCommand createdBookingCommand)
         {
             CreatedBookingResponse response = await _mediator.Send(createdBookingCommand);
