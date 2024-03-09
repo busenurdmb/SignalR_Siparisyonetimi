@@ -1,8 +1,20 @@
 using Application;
 using Persistence;
 using Persistence.Context;
+using WebAPI.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
+
+//apinýn bizim istediðimiz sýnýrlar içerisinde dýþarýya açýlmasýný saðlayan yöntem
+builder.Services.AddCors(opt =>
+{
+    opt.AddPolicy("CorsPolicy", builder =>
+    {
+        builder.AllowAnyHeader().AllowAnyMethod().SetIsOriginAllowed((host) => true).AllowCredentials();
+    });
+});
+
+builder.Services.AddSignalR();
 
 // Add services to the container.
 
@@ -24,10 +36,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("CorsPolicy");
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapHub<SignalRHub>("/signalrhub");
 
 app.Run();
