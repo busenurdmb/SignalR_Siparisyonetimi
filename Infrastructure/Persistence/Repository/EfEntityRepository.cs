@@ -15,6 +15,7 @@ namespace Persistence.Repository
         where TContext : DbContext
     {
         protected TContext _context;
+        //protected bu sınıfı miras alan sınıflarda kullanabilir.
 
         public EfEntityRepository(TContext context)
         {

@@ -1,6 +1,7 @@
 ﻿using Application.Features.Mediator.Products.Commands.Create;
 using Application.Features.Mediator.Products.Commands.Delete;
 using Application.Features.Mediator.Products.Commands.Update;
+using Application.Features.Mediator.ProductsWithCategoriess.Queries.GetProductsWithCategoriessWithCategories;
 using Application.Products.Mediator.Products.Commands.Create;
 using Application.Products.Mediator.Products.Commands.Update;
 using Application.Products.Mediator.Products.Queries.GetById;
@@ -26,6 +27,13 @@ namespace WebAPI.Controllers
         public async Task<IActionResult> ProductList()
         {
             var values = await _mediator.Send(new GetListProductQuery());
+
+            return Ok(values);
+        }
+        [HttpGet("GetProductsWithCategories")]
+        public async Task<IActionResult> GetProductsWithCategories()
+        {
+            var values = await _mediator.Send(new GetListProductsWithCategoriesQuery());
 
             return Ok(values);
         }
