@@ -2,6 +2,7 @@
 using Application.Features.Mediator.Categories.Commands.Delete;
 using Application.Features.Mediator.Categories.Commands.Update;
 using Application.Features.Mediator.Categories.Queries.GetById;
+using Application.Features.Mediator.Categories.Queries.GetCategoryCount;
 using Application.Features.Mediator.Categories.Queries.GetList;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -25,6 +26,12 @@ namespace WebAPI.Controllers
             var values = await _mediator.Send(new GetListCategoryQuery());
 
             return Ok(values);
+        }
+        [HttpGet("CategoryCount")]
+        public async Task<IActionResult> CategoryCount()
+        {
+            var value = await _mediator.Send(new GetCategoryCountQuery());
+            return Ok(value);
         }
 
         [HttpGet("{id}")]

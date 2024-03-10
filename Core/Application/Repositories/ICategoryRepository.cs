@@ -9,5 +9,6 @@ namespace Application.Repositories
 {
     public interface ICategoryRepository : IEntityRepository<Category>
     {
+        int CategoryCount();
     }
 }

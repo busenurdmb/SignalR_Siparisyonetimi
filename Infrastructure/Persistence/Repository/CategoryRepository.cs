@@ -14,5 +14,10 @@ namespace Persistence.Repository
         public CategoryRepository(SignalRContext context) : base(context)
         {
         }
+
+        public  int CategoryCount()
+        {
+            return _context.Categories.Count();
+        }
     }
 }
