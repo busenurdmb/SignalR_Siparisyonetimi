@@ -146,7 +146,7 @@ namespace Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Products",
+                name: "Categories",
                 columns: table => new
                 {
                     ProductID = table.Column<int>(type: "int", nullable: false)
@@ -171,7 +171,7 @@ namespace Persistence.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_Products_CategoryID",
-                table: "Products",
+                table: "Categories",
                 column: "CategoryID");
         }
 
@@ -194,7 +194,7 @@ namespace Persistence.Migrations
                 name: "Features");
 
             migrationBuilder.DropTable(
-                name: "Products");
+                name: "Categories");
 
             migrationBuilder.DropTable(
                 name: "SocialMedias");

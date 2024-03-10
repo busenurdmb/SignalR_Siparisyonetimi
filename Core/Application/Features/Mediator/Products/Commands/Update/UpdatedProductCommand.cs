@@ -1,4 +1,4 @@
-﻿using Application.Features.Mediator.Products.Commands.Update;
+﻿using Application.Features.Mediator.Categories.Commands.Update;
 using Application.Repositories;
 using AutoMapper;
 using Domain.Entities;

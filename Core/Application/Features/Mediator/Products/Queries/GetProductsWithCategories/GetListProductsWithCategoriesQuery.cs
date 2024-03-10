@@ -1,4 +1,4 @@
-﻿using Application.Features.Mediator.Products.Queries.GetProductsWithCategories;
+﻿using Application.Features.Mediator.Categories.Queries.GetProductsWithCategories;
 using Application.Repositories;
 using AutoMapper;
 using MediatR;
@@ -22,7 +22,7 @@ namespace Application.Features.Mediator.ProductsWithCategoriess.Queries.GetProdu
             public async Task<List<GetListProductsWithCategoriesResponse>> Handle(GetListProductsWithCategoriesQuery request, CancellationToken cancellationToken)
             {
                 var Products = await _ProductsRepository.GetProductsWithCategories2();
-                //return Products.Select(x => new GetListProductsWithCategoriesResponse
+                //return Categories.Select(x => new GetListProductsWithCategoriesResponse
                 //{
                 //    ProductName = x.ProductName,
                 //    Description= x.Description,

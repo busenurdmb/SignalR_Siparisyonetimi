@@ -1,4 +1,4 @@
-﻿using Application.Features.Mediator.Products.Queries.GetProductsWithCategories;
+﻿using Application.Features.Mediator.Categories.Queries.GetProductsWithCategories;
 using Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -12,5 +12,15 @@ namespace Application.Repositories
     {
         //Task<List<GetListProductsWithCategoriesResponse>> GetProductsWithCategories();
         Task<List<Product>> GetProductsWithCategories2();
+        int ProductCount();
+        int ProductCountByCategoryNameHamburger();
+        int ProductCountByCategoryNameDrink();
+        decimal ProductPriceAvg();
+        string ProductNameByMaxPrice();
+        string ProductNameByMinPrice();
+        decimal ProductAvgPriceByHamburger();
+        decimal ProductPriceBySteakBurger();
+        decimal TotalPriceByDrinkCategory();
+        decimal TotalPriceBySaladCategory();
     }
 }

@@ -1,4 +1,4 @@
-﻿using Application.Features.Mediator.Products.Commands.Create;
+﻿using Application.Features.Mediator.Categories.Commands.Create;
 using Application.Repositories;
 using AutoMapper;
 using Domain.Entities;

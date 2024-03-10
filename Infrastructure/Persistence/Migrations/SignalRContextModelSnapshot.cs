@@ -249,7 +249,7 @@ namespace Persistence.Migrations
 
                     b.HasIndex("CategoryID");
 
-                    b.ToTable("Products");
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("Domain.Entities.SocialMedia", b =>
@@ -312,7 +312,7 @@ namespace Persistence.Migrations
             modelBuilder.Entity("Domain.Entities.Product", b =>
                 {
                     b.HasOne("Domain.Entities.Categories  ", "Categories  ")
-                        .WithMany("Products")
+                        .WithMany("Categories")
                         .HasForeignKey("CategoryID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -322,7 +322,7 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.Categories  ", b =>
                 {
-                    b.Navigation("Products");
+                    b.Navigation("Categories");
                 });
 #pragma warning restore 612, 618
         }

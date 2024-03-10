@@ -1,4 +1,4 @@
-﻿using Application.Features.Mediator.Products.Queries.GetList;
+﻿using Application.Features.Mediator.Categories.Queries.GetList;
 using Application.Repositories;
 using AutoMapper;
 using MediatR;

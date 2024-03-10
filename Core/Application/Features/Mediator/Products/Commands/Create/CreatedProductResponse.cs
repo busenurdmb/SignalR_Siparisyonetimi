@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Features.Mediator.Products.Commands.Create
+namespace Application.Features.Mediator.Categories.Commands.Create
 {
     public class CreatedProductResponse
     {

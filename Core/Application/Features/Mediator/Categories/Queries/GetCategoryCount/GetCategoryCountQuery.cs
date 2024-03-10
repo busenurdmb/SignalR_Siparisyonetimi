@@ -1,4 +1,6 @@
-﻿using Application.Features.Mediator.Categories.Queries.GetList;
+﻿using Application.Features.Mediator.Categories.Queries.GetCategoryCount;
+using Application.Features.Mediator.Categories.Queries.GetList;
+using Application.Features.Mediator.Products.Queries.GetProductCount;
 using Application.Repositories;
 using AutoMapper;
 using MediatR;
@@ -8,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Features.Mediator.Categories.Queries.GetCategoryCount
+namespace Application.Features.Mediator.Categories.Queries.GetProductCount
 {
 
         public class GetCategoryCountQuery : IRequest<GetCategoryCountResponse>

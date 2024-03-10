@@ -1,4 +1,4 @@
-﻿using Application.Features.Mediator.Products.Commands.Delete;
+﻿using Application.Features.Mediator.Categories.Commands.Delete;
 using Application.Repositories;
 using AutoMapper;
 using Domain.Entities;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Features.Mediator.Products.Commands.Delete
+namespace Application.Features.Mediator.Categories.Commands.Delete
 {
     public class DeletedProductCommand : IRequest<DeletedProductResponse>
     {

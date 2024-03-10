@@ -1,4 +1,4 @@
-﻿using Application.Features.Mediator.Categories.Queries.GetCategoryCount;
+﻿using Application.Features.Mediator.Categories.Queries.GetProductCount;
 using MediatR;
 using Microsoft.AspNetCore.SignalR;
 

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Features.Mediator.Products.Queries.GetProductsWithCategories
+namespace Application.Features.Mediator.Categories.Queries.GetProductsWithCategories
 {
     public class GetListProductsWithCategoriesResponse
     {

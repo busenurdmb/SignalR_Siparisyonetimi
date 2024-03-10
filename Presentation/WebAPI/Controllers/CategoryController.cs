@@ -1,9 +1,11 @@
 ﻿using Application.Features.Mediator.Categories.Commands.Create;
 using Application.Features.Mediator.Categories.Commands.Delete;
 using Application.Features.Mediator.Categories.Commands.Update;
+using Application.Features.Mediator.Categories.Queries.GetActiveCatgeoryCount;
 using Application.Features.Mediator.Categories.Queries.GetById;
-using Application.Features.Mediator.Categories.Queries.GetCategoryCount;
+using Application.Features.Mediator.Categories.Queries.GetProductCount;
 using Application.Features.Mediator.Categories.Queries.GetList;
+using Application.Features.Mediator.Categories.Queries.GetPassiveCatgeoryCount;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -33,7 +35,18 @@ namespace WebAPI.Controllers
             var value = await _mediator.Send(new GetCategoryCountQuery());
             return Ok(value);
         }
-
+        [HttpGet("CategoryActiveCount")]
+        public async Task<IActionResult> CategoryActiveCount()
+        {
+            var value = await _mediator.Send(new GetActiveCategoryCountQuery());
+            return Ok(value);
+        }
+        [HttpGet("CategoryPassiveCount")]
+        public async Task<IActionResult> CategoryPassiveCount()
+        {
+            var value = await _mediator.Send(new GetPassiveCategoryCountQuery());
+            return Ok(value);
+        }
         [HttpGet("{id}")]
         public async Task<IActionResult> GetCategory(int id)
         {

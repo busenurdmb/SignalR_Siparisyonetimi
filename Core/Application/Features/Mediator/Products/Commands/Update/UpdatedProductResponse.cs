@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Features.Mediator.Products.Commands.Update
+namespace Application.Features.Mediator.Categories.Commands.Update
 {
     public class UpdatedProductResponse
     {
