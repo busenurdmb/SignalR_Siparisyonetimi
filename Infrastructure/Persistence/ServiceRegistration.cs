@@ -28,6 +28,8 @@ namespace Persistence
             services.AddScoped<ITestimonialRepository, TestimonialRepository>();
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IOrderDetailRepository, OrderDetailRepository>();
+            services.AddScoped<IMoneyCaseRepository, MoneyCaseRepository>();
+            services.AddScoped<IMenuTableRepository, MenuTableRepository>();
             services.AddScoped<SignalRContext>();
         }
     }
