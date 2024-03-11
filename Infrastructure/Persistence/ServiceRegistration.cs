@@ -26,6 +26,8 @@ namespace Persistence
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<ISocialMediaRepository, SocialMediaRepository>();
             services.AddScoped<ITestimonialRepository, TestimonialRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IOrderDetailRepository, OrderDetailRepository>();
             services.AddScoped<SignalRContext>();
         }
     }
