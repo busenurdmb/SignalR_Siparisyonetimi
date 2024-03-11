@@ -26,7 +26,7 @@
                                 connection.start().then(() => {
                                     $("#connstatus").text(connection.state);
 
-                                    connection.invoke("SendCategoryCount");
+                                connection.invoke("SendStatistic");
                                 }).catch((err) => {
                                     console.log(err)
                                 });
@@ -34,6 +34,13 @@
                             connection.on("ReceiveCategoryCount", (value) => {
                                 $("#categorycount").text(value);
                             });
+                            connection.on("ReceiveProductCount", (value2) => {
+                                $("#productcount").text(value2);
+                            });
+
+                                connection.on("ReceiveProductCount", (value2) => {
+                                    $("#productcount").text(value2);
+                                });
                         });
                            
                            
