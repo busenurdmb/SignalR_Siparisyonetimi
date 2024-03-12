@@ -17,6 +17,7 @@ namespace Persistence
             //{
             //    opt.UseSqlServer(configuration.GetConnectionString("Local"));
             //});
+
             services.AddScoped<IAboutRepository, AboutRepository>();
             services.AddScoped<IBookingRepository, BookingRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
@@ -30,6 +31,7 @@ namespace Persistence
             services.AddScoped<IOrderDetailRepository, OrderDetailRepository>();
             services.AddScoped<IMoneyCaseRepository, MoneyCaseRepository>();
             services.AddScoped<IMenuTableRepository, MenuTableRepository>();
+            services.AddScoped<ISliderRepository, SliderRepository>();
             services.AddScoped<SignalRContext>();
         }
     }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Application.Repositories
 {
-   public interface IAboutRepository:IEntityRepository<About>
+    public interface IAboutRepository:IEntityRepository<About>
     {
     }
 }

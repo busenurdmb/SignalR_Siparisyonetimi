@@ -9,7 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Features.Mediator.SocialMedias.Commands.Create
+namespace Application.Features.Mediator.SocialMedias
+    .Commands.Create
 {
     public class CreatedSocialMediaCommand : IRequest<CreatedSocialMediaResponse>
     {
@@ -29,7 +30,7 @@ namespace Application.Features.Mediator.SocialMedias.Commands.Create
 
             public async Task<CreatedSocialMediaResponse> Handle(CreatedSocialMediaCommand request, CancellationToken cancellationToken)
             {
-                var socialMedia = _mapper.Map<SocialMedia>(request);
+                var socialMedia = _mapper.Map<Domain.Entities.SocialMedia>(request);
                 await _SocialMediaRepository.CreateAsync(socialMedia);
                 return _mapper.Map<CreatedSocialMediaResponse>(socialMedia);
             }

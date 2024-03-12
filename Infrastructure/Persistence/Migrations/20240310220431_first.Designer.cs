@@ -314,7 +314,7 @@ namespace Persistence.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("Domain.Entities.SocialMedia", b =>
+            modelBuilder.Entity("Domain.Entities.SocialMedias", b =>
                 {
                     b.Property<int>("SocialMediaID")
                         .ValueGeneratedOnAdd()
