@@ -1,21 +1,19 @@
-﻿using Domain.Abstract;
+﻿using Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entities
+namespace Application.Features.Mediator.Baskets.Queries.GetList
 {
-    public class Basket:IEntity
+    public class GetListBasketResponse
     {
         public int BasketID { get; set; }
         public decimal Price { get; set; }
         public decimal Count { get; set; }
         public decimal TotalPrice { get; set; }
         public int ProductID { get; set; }
-        public Product Product { get; set; }
         public int MenuTableID { get; set; }
-        public MenuTable MenuTable { get; set; }
     }
 }

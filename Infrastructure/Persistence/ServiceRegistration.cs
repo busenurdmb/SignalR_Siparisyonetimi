@@ -32,6 +32,7 @@ namespace Persistence
             services.AddScoped<IMoneyCaseRepository, MoneyCaseRepository>();
             services.AddScoped<IMenuTableRepository, MenuTableRepository>();
             services.AddScoped<ISliderRepository, SliderRepository>();
+            services.AddScoped<IBasketRepository, BasketRepository>();
             services.AddScoped<SignalRContext>();
         }
     }
