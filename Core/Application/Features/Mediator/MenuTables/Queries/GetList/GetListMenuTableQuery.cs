@@ -1,4 +1,5 @@
 ﻿
+using Application.Features.Mediator.MenuTables.Queries.GetList;
 using Application.Repositories;
 using AutoMapper;
 using MediatR;
@@ -8,25 +9,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Features.Mediator.MenuTables.Queries.GetList
+namespace Application.MenuTables.Mediator.MenuTables.Queries.GetList
 {
     public class GetListMenuTableQuery : IRequest<List<GetListMenuTableResponse>>
     {
-        public class GetListFeatureQueryHandler : IRequestHandler<GetListMenuTableQuery, List<GetListMenuTableResponse>>
+        public class GetListMenuTableQueryHandler : IRequestHandler<GetListMenuTableQuery, List<GetListMenuTableResponse>>
         {
-            private readonly IFeatureRepository _FeatureRepository;
+            private readonly IMenuTableRepository _MenuTableRepository;
             private readonly IMapper _mapper;
 
-            public GetListFeatureQueryHandler(IFeatureRepository FeatureRepository, IMapper mapper)
+            public GetListMenuTableQueryHandler(IMenuTableRepository MenuTableRepository, IMapper mapper)
             {
-                _FeatureRepository = FeatureRepository;
+                _MenuTableRepository = MenuTableRepository;
                 _mapper = mapper;
             }
 
             public async Task<List<GetListMenuTableResponse>> Handle(GetListMenuTableQuery request, CancellationToken cancellationToken)
             {
-                var Feature = await _FeatureRepository.GetAllAsync();
-                return _mapper.Map<List<GetListMenuTableResponse>>(Feature);
+                var MenuTable = await _MenuTableRepository.GetAllAsync();
+                return _mapper.Map<List<GetListMenuTableResponse>>(MenuTable);
             }
         }
     }

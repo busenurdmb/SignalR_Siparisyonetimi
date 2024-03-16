@@ -53,7 +53,7 @@
                                             <h6>
                                                 @item.Price₺
                                             </h6>
-                                            <a href="#" onclick="showproductid(@item.ProductID,'@item.ProductName')">
+                                            <a href="#" onclick="showproductid(@item.ProductID,'@item.ProductName',@item.Price)">
                                                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                                                 <g>
                                                 <g>
@@ -127,24 +127,36 @@
 
     @await Component.InvokeAsync("_UILayoutScriptComponentPartial")
 
-    <script>
-        function showproductid(value,name) {
-            var id = value;
-            var name=name
+ 
+<script>
+        function showproductid(id, name, price) {
+            var itemName = name;
+            
+            // Sepete ekleme işlemi için AJAX isteği gönder
             $.ajax({
                 type: 'POST',
-                data: { item: id },
-                // url: "/Menu/AddBasket/" + id,
-                contentType: 'json',
+                data: JSON.stringify({
+                    productId: id,
+                    price: price,
+                    count: 1, // Varsayılan olarak 1
+                    totalPrice: price, // Varsayılan olarak 0
+                    productID: id,
+                    menuTableID: 4 // Varsayılan olarak 0 veya başka bir değer
+                }),
+                url: "/Menu/AddBasket",
+                contentType: 'application/json',
                 success: function () {
-                    swal(name, "Seçtiğiniz Ürün Sepete Eklendi!", "success");
-
+                    swal(itemName, "Seçtiğiniz Ürün Sepete Eklendi!", "success");
+                },
+                error: function () {
+                    swal("Hata", "Ürün sepete eklenirken bir hata oluştu!", "error");
                 }
             });
         };
-
-
     </script>
+
+
+
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 

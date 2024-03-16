@@ -18,11 +18,11 @@ namespace Application.Features.Mediator.Bookings.Queries.GetById
         //    Id = ıd;
         //}
 
-        public class GetByIdBrandQueryHandler : IRequestHandler<GetByIdBookingQuery, GetByIdBookingResponse>
+        public class GetByIdBookingQueryHandler : IRequestHandler<GetByIdBookingQuery, GetByIdBookingResponse>
         {
             private readonly IBookingRepository _bookingRepository;
             private readonly IMapper _mapper;
-            public GetByIdBrandQueryHandler(IBookingRepository bookingRepository, IMapper mapper)
+            public GetByIdBookingQueryHandler(IBookingRepository bookingRepository, IMapper mapper)
             {
                 _bookingRepository = bookingRepository;
                 _mapper = mapper;

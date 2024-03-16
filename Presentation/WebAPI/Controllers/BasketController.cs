@@ -1,6 +1,8 @@
 ﻿using Application.Features.Mediator.Baskets.Commands.Create;
 using Application.Features.Mediator.Baskets.Commands.Delete;
 using Application.Features.Mediator.Baskets.Commands.Update;
+using Application.Features.Mediator.Baskets.Queries.BasketListByMenuTableWithProductName;
+using Application.Features.Mediator.Baskets.Queries.GetBasketByMenuTableNumber;
 using Application.Features.Mediator.Baskets.Queries.GetById;
 using Application.Features.Mediator.Baskets.Queries.GetList;
 using MediatR;
@@ -36,13 +38,28 @@ namespace WebAPI.Controllers
             var value = await _mediator.Send(getByIdBasket);
             return Ok(value);
         }
+        //[HttpGet("Basket/{id}")]
+        [HttpGet("GetBasketByMenuTableID")]
+        public async Task<IActionResult> GetBasketByMenuTableID(int id)
+        {
 
+            var values =await _mediator.Send(new GetBasketByMenuTableNumberQuery(id));
+            return Ok(values);
+        }
+        [HttpGet("BasketListByMenuTableWithProductName")]
+        public async Task<IActionResult> BasketListByMenuTableWithProductName(int id)
+        {
+
+            var values =await  _mediator.Send(new BasketListByMenuTableWithProductNameQuery(id));
+            return Ok(values);
+        }
         [HttpPost]
         public async Task<IActionResult> Add(CreatedBasketCommand createdBasketCommand)
         {
             CreatedBasketResponse response = await _mediator.Send(createdBasketCommand);
             return Ok(response);
         }
+
 
         [HttpPut]
         public async Task<IActionResult> Update(UpdateBasketCommand updateBasketCommand)

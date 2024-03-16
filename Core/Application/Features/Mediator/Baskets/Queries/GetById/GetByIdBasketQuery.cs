@@ -20,11 +20,11 @@ namespace Application.Features.Mediator.Baskets.Queries.GetById
         //    Id = ıd;
         //}
 
-        public class GetByIdBrandQueryHandler : IRequestHandler<GetByIdBasketQuery, GetByIdBasketResponse>
+        public class GetByIdBasketQueryHandler : IRequestHandler<GetByIdBasketQuery, GetByIdBasketResponse>
         {
             private readonly IBasketRepository _BasketRepository;
             private readonly IMapper _mapper;
-            public GetByIdBrandQueryHandler(IBasketRepository BasketRepository, IMapper mapper)
+            public GetByIdBasketQueryHandler(IBasketRepository BasketRepository, IMapper mapper)
             {
                 _BasketRepository = BasketRepository;
                 _mapper = mapper;

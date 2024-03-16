@@ -4,9 +4,11 @@ using Application.Features.Mediator.MenuTables.Commands.Create;
 using Application.Features.Mediator.MenuTables.Queries.GetById;
 using Application.Features.Mediator.MenuTables.Queries.GetList;
 using Application.Features.Mediator.MenuTables.Queries.GetMenuTableCount;
+using Application.Menus.Mediator.MenuTables.Queries.GetById;
 using Application.MenuTables.Mediator.MenuTables.Commands.Create;
 using Application.MenuTables.Mediator.MenuTables.Commands.Delete;
 using Application.MenuTables.Mediator.MenuTables.Commands.Update;
+using Application.MenuTables.Mediator.MenuTables.Queries.GetList;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

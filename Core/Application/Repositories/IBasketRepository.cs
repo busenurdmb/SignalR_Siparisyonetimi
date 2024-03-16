@@ -9,5 +9,9 @@ namespace Application.Repositories
 {
     public interface IBasketRepository:IEntityRepository<Basket>
     {
+        List<Basket> GetBasketByMenuTableNumber(int id);
+        Task<List<Basket>> BasketListByMenuTableWithProductName(int id);
+        
+        
     }
 }

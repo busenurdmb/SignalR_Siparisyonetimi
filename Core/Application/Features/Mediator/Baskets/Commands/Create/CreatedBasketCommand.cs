@@ -16,7 +16,8 @@ namespace Application.Features.Mediator.Baskets.Commands.Create
     {
 
         public int BasketID { get; set; }
-        public decimal Price { get; set; }
+
+     public decimal Price { get; set; }
         public decimal Count { get; set; }
         public decimal TotalPrice { get; set; }
         public int ProductID { get; set; }
@@ -39,6 +40,7 @@ namespace Application.Features.Mediator.Baskets.Commands.Create
 
 
                 var Basket = _mapper.Map<Basket>(request);
+
                 await _BasketRepository.CreateAsync(Basket);
 
                 // Oluşturulan hakkında yanıtını döndür
