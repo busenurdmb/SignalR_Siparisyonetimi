@@ -8,10 +8,10 @@ var builder = WebApplication.CreateBuilder(args);
 //apinýn bizim istediðimiz sýnýrlar içerisinde dýþarýya açýlmasýný saðlayan yöntem
 builder.Services.AddCors(opt =>
 {
-    opt.AddPolicy("CorsPolicy", builder =>
-    {
-        builder.AllowAnyHeader().AllowAnyMethod().SetIsOriginAllowed((host) => true).AllowCredentials();
-    });
+	opt.AddPolicy("CorsPolicy", builder =>
+	{
+		builder.AllowAnyHeader().AllowAnyMethod().SetIsOriginAllowed((host) => true).AllowCredentials();
+	});
 });
 
 builder.Services.AddSignalR();

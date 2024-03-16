@@ -1,8 +1,12 @@
-﻿using Application.Features.Mediator.Categories.Queries.GetActiveCatgeoryCount;
+﻿using Application.Features.Mediator.Bookings.Queries.GetList;
+using Application.Features.Mediator.Categories.Queries.GetActiveCatgeoryCount;
 using Application.Features.Mediator.Categories.Queries.GetPassiveCatgeoryCount;
 using Application.Features.Mediator.Categories.Queries.GetProductCount;
 using Application.Features.Mediator.MenuTables.Queries.GetMenuTableCount;
 using Application.Features.Mediator.MoneyCases.Queries;
+using Application.Features.Mediator.Notifications.Queries.GetAllNotificationByFalse;
+using Application.Features.Mediator.Notifications.Queries.GetList;
+using Application.Features.Mediator.Notifications.Queries.NotificationCountByStatusFalse;
 using Application.Features.Mediator.Orders.Queries.GetActiveOrderCount;
 using Application.Features.Mediator.Orders.Queries.GetLastOrderPrice;
 using Application.Features.Mediator.Orders.Queries.GetOrderCount;
@@ -16,6 +20,7 @@ using Application.Features.Mediator.Products.Queries.GetProductPriceAvg;
 using Application.Features.Mediator.Products.Queries.GetProductPriceBySteakBurger;
 using Application.Features.Mediator.Products.Queries.GetTotalPriceByDrinkCategory;
 using Application.Features.Mediator.Products.Queries.GetTotalPriceBySaladCategory;
+using Application.MenuTables.Mediator.MenuTables.Queries.GetList;
 using MediatR;
 using Microsoft.AspNetCore.SignalR;
 
@@ -123,5 +128,24 @@ namespace WebAPI.Hubs
             await Clients.All.SendAsync("ReceiveTotalPriceBySaladCategory", value11.pricesalad);
 
         }
-    }
+        public async Task GetBookingList()
+        {
+            var values = await _mediator.Send(new GetListBookingQuery());
+            await Clients.All.SendAsync("ReceiveBookingList", values);
+        }
+		public async Task SendNotification()
+        {
+            var values = await _mediator.Send(new NotificationCountByStatusFalseQuery());
+            await Clients.All.SendAsync("ReceiveNotificationCountByFalse", values.count);
+
+            var values2 = await _mediator.Send(new GetAllNotificationByFalseQuery());
+            await Clients.All.SendAsync("ReceiveNotificationListByFalse", values2);
+        }
+        public async Task GetMenuTableStatus()
+        {
+            var value = await _mediator.Send(new GetListMenuTableQuery());
+			await Clients.All.SendAsync("ReceiveMenuTableStatus", value);
+		}
+
+	}
 }

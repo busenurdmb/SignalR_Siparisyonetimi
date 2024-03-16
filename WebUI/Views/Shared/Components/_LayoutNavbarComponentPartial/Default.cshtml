@@ -1,7 +1,7 @@
 ﻿<script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
-<script src="~/microsoft/signalr/dist/browser/signalr.min.js"></script>
+<script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
 
 <div class="main-header">
 
@@ -9,7 +9,7 @@
 
 		$(document).ready(() => {
 
-			var connection = new signalR.HubConnectionBuilder().withUrl("https://localhost:7186/SignalRHub").build();
+			var connection = new signalR.HubConnectionBuilder().withUrl("https://localhost:7291/SignalRHub").build();
 			$("#connstatus").text(connection.state);
 			connection.start().then(() => {
 				$("#connstatus").text(connection.state);
@@ -26,17 +26,18 @@
 			connection.on("ReceiveNotificationListByFalse", (value) => {
 				console.log(value);
 				$("#notilist").empty();
-				for (var i = 0; i < value.length;i++){
-					$("#notilist").append(`<a href="#">
-					<div class="${value[i].type}"><i class="${value[i].icon}"></i></div>
-					<div class="notif-content">
-					<span class="block">
-					${value[i].description}
-					</span>
-					<span class="time">${value[i].date}</span>
-					</div>
-					</a>
-					`)
+				for (var i = 0; i < value.length; i++) {
+					$("#notilist").append(`<a href="/Notifications/NotificationStatusChangeToTrue/${value[i].notificationID}">
+							<div class="${value[i].type}"><i class="${value[i].icon}"></i></div>
+							<div class="notif-content">
+							<span class="block">
+							${value[i].description}
+							</span>
+							<span class="time">"${value[i].date}"</span>
+
+							</div>
+							</a>
+							`)
 				};
 			});
 		});
@@ -47,6 +48,7 @@
 		<a href="index.html" class="logo">
 			SignalR Admin
 		</a>
+
 		<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -65,6 +67,7 @@
 					</div>
 				</div>
 			</form>
+			<div class="alert alert-success">Bağlantının Durumu:<strong id="connstatus"></strong></div>
 			<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
 				<li class="nav-item dropdown hidden-caret">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
