@@ -1,4 +1,5 @@
 ﻿using Application.Repositories;
+using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,12 +14,13 @@ namespace Persistence
         public static void AddPersistenceServices(this IServiceCollection services, IConfiguration configuration)
         {
 
-            //services.AddDbContext<SignalRContext>(opt =>
-            //{
-            //    opt.UseSqlServer(configuration.GetConnectionString("Local"));
-            //});
+			
+			//services.AddDbContext<SignalRContext>(opt =>
+			//{
+			//    opt.UseSqlServer(configuration.GetConnectionString("Local"));
+			//});
 
-            services.AddScoped<IAboutRepository, AboutRepository>();
+			services.AddScoped<IAboutRepository, AboutRepository>();
             services.AddScoped<IBookingRepository, BookingRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IContactRepository, ContactRepository>();
