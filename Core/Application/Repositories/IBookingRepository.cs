@@ -9,5 +9,7 @@ namespace Application.Repositories
 {
     public interface IBookingRepository : IEntityRepository<Booking>
     {
+        Task BookingStatusApproved(int id);
+        Task BookingStatusCancelled(int id);
     }
 }

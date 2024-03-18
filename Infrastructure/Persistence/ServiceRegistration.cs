@@ -36,6 +36,7 @@ namespace Persistence
             services.AddScoped<ISliderRepository, SliderRepository>();
             services.AddScoped<IBasketRepository, BasketRepository>();
             services.AddScoped<INotificationRepository, NotificationRepository>();
+            services.AddScoped<IMessageRepository, MessageRepository>();
             services.AddScoped<SignalRContext>();
         }
     }

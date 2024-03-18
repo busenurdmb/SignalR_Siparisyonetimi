@@ -10,7 +10,8 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form_container">
-                    <form method="post" asp-action="SendMessage" asp-controller="Default">
+                    @* id="sendMessageForm" *@
+                    <form  method="post" role="form" class="contactForm">
                         <div>
                             <input type="text" class="form-control" placeholder="Adınız Soyadınız" asp-for="NameSurname" />
                         </div>
@@ -28,7 +29,7 @@
                         </div>
                       
                         <div class="btn_box">
-                            <button>
+                            <button type="submit" @* id="btnReservationNow" *@>
                                 Mesajı Gönder
                             </button>
                         </div>
@@ -43,3 +44,46 @@
         </div>
     </div>
 </section>
+
+ @* <script>
+    $(document).ready(function () {
+        $("#btnReservationNow").click(function (event) {
+            // Form submit olayını durdur
+            event.preventDefault();
+
+            var formData = $("#sendMessageForm").serialize();
+            var action = $("#sendMessageForm").attr('action');
+
+            if (!action) {
+                action = '/Default/Add';
+            }
+
+            // AJAX isteğini oluştur
+            $.ajax({
+                type: "POST",
+                url: action,
+                data: formData,
+                success: function (response) {
+                    // Rezervasyon başarılı olduğunda yapılacak işlemler
+                    console.log("Rezervasyon başarıyla oluşturuldu");
+                    console.log(response);
+
+                    // SweetAlert2 ile başarılı iletişim kutusu göster
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Rezervasyon Başarılı!',
+                        text: 'Rezervasyon talebiniz alınmıştır.'
+                    });
+                },
+                error: function (xhr, status, error) {
+                    // Hata olduğunda yapılacak işlemler
+                    console.log("Rezervasyon oluşturulurken bir hata oluştu");
+                    console.log(xhr.responseText);
+                    // Eğer gerekirse, hata mesajını kullanıcıya göstermek için burada bir işlem yapabilirsiniz.
+                }
+            });
+        });
+    });
+</script>  *@
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+

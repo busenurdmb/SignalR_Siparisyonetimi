@@ -1,0 +1,205 @@
+﻿@model UserEditDto 
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+ <div class="container-fluid" id="container-wrapper">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800"> Güncelleme Sayfası</h1>
+   </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <!-- Form Basic -->
+            <div class="card mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary"> Profil Ayarları</h6>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <div class="row justify-content-center">
+                            <div class="col-md-12">
+                                <div class="container">
+                                    <div class="row no-gutters">
+                                        <div class="col-sm-12 p-4 p-md-5 d-flex align-items-center justify-content-center bg-primary">
+
+
+                                            <span class="input-group-text bg-primary text-white"><strong>Ayarlar</strong> <i class="la la-chain"><strong>Şifre ve Bilgi Güncelleme Sayfası</strong></i> </span>
+                                        
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="Name">İsim</label>
+                                        <div class="input-group clockpicker" id="clockPicker1">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text bg-primary text-white"><i class="la la-user"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control" asp-for="Name" id="Name">
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="Surname">Soyisim</label>
+                                        <div class="input-group date">
+                                            <div class="input-group-prepend">
+                                            <span class="input-group-text bg-primary text-white"><i class="la la-user-md"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control" asp-for="Surname" id="Surname">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="Mail">Email</label>
+                                        <div class="input-group date">
+                                            <div class="input-group-prepend">
+                                            <span class="input-group-text bg-primary text-white"><i class="la la-mail-forward"></i></span>
+                                            </div>
+                                            <input type="email" class="form-control" asp-for="Mail" id="Mail">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="Username">Kullanıcı Adınız</label>
+                                        <div class="input-group clockpicker" id="clockPicker1">
+
+                                            <input type="text" class="form-control" asp-for="Username" id="Username">
+                                            <div class="input-group-append">
+                                            <span class="input-group-text bg-primary text-white"><i class="la la-user-plus"></i></span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="Password">Şifreniz</label>
+                                        <div class="input-group clockpicker" id="clockPicker1">
+                                            <input type="password" class="form-control" asp-for="Password" id="Password">
+                                            <div class="input-group-append">
+                                            <span class="input-group-text bg-primary text-white"><i class="la la-unlock"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="ConfirmPassword">Şifrenizi Onaylayın</label>
+                                        <div class="input-group clockpicker" id="clockPicker1">
+                                            <input type="password" class="form-control" asp-for="ConfirmPassword" id="ConfirmPassword">
+                                            <div class="input-group-append">
+                                            <span class="input-group-text bg-primary text-white"><i class="la la-unlock"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="card-action text-center">
+                                    <button class="btn btn-primary">Bilgileri Güncelle</button>
+                                </div>
+                            </div>
+                       
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+
+@* <form method="post">
+
+
+    <div class="card-body">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="Name">İsim</label>
+                <div class="input-group clockpicker" id="clockPicker1">
+                    <div class="input-group-append">
+                        <span class="input-group-text bg-primary"><i class="la la-user"></i></span>
+                    </div>
+                    <input type="text" class="form-control" asp-for="Name" id="Name">
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="Surname">Soyisim</label>
+                <div class="input-group date">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text bg-primary"><i class="la la-user-md"></i></span>
+                    </div>
+                    <input type="text" class="form-control" asp-for="Surname" id="Surname">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="Mail">Email</label>
+                <div class="input-group date">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text bg-primary"><i class="la la-mail-forward"></i></span>
+                    </div>
+                    <input type="email" class="form-control" asp-for="Mail" id="Mail">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="Username">Kullanıcı Adınız</label>
+                <div class="input-group clockpicker" id="clockPicker1">
+
+                    <input type="text" class="form-control" asp-for="Username" id="Username">
+                    <div class="input-group-append">
+                        <span class="input-group-text"><i class="la la-user-plus"></i></span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="Password">Şifreniz</label>
+                <div class="input-group clockpicker" id="clockPicker1">
+                    <input type="password" class="form-control" asp-for="Password" id="Password">
+                    <div class="input-group-append">
+                        <span class="input-group-text bg-primary"><i class="la la-user-secret"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="ConfirmPassword">Şifrenizi Onaylayın</label>
+                <div class="input-group clockpicker" id="clockPicker1">
+                    <input type="password" class="form-control" asp-for="ConfirmPassword" id="ConfirmPassword">
+                    <div class="input-group-append">
+                        <span class="input-group-text bg-primary"><i class="la la-user-secret"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card-action">
+            <button class="btn btn-success">Bilgileri Güncelle</button>
+        </div>
+    </div>
+</form> *@
+

@@ -40,11 +40,48 @@
 										<th>@count</th>
 										<td>@item.Title</td>
 										<td>@item.Amount</td>
-										<td>@item.Status</td>
-										<td><a href="/Discount/DeleteDiscount/@item.DiscountID" class="btn btn-outline-danger">Sil</a></td>
-										<td><a href="/Discount/UpdateDiscount/@item.DiscountID" class="btn btn-outline-success">Güncelle</a></td>
-										<td><a href="/Discount/ChangeStatusToTrue/@item.DiscountID" class="btn btn-outline-warning">Aktif Yap</a></td>
-										<td><a href="/Discount/ChangeStatusToFalse/@item.DiscountID" class="btn btn-outline-dark">Pasif Yap</a></td>
+										@if (item.Status == true)
+										{
+											<td class="badge badge-primary">Aktif</td>
+										}
+										else
+										{
+										<td class="badge badge-dark">Pasif</td>
+                                        }
+										<td>
+											<a href="/Discount/DeleteDiscount/@item.DiscountID" class="btn btn-danger">
+												<span class="icon text-white">
+													<i class="la la-trash-o"></i>
+												</span>
+												<span class="text">Sil</span>
+											</a>
+										</td>
+										<td>
+											<a href="/Discount/UpdateDiscount/@item.DiscountID" class="btn btn-success">
+												<span class="icon text-white">
+													<i class="la la-edit"></i>
+												</span>
+												<span class="text">Güncelle</span>
+											</a>
+										</td>
+										<td>
+											<a href="/Discount/ChangeStatusToTrue/@item.DiscountID" class="btn btn-primary">
+												<span class="icon text-white">
+													<i class="la la-check"></i>
+												</span>
+												<span class="text">Aktif Yap</span>
+											</a>
+										</td>
+										<td>
+											<a href="/Discount/ChangeStatusToFalse/@item.DiscountID" class="btn btn-dark">
+												<span class="icon text-white">
+													<i class="la la-exclamation-circle"></i>
+												</span>
+												<span class="text">Pasif Yap</span>
+											</a>
+										</td>
+										
+										
 
 									</tr>
 								}

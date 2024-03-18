@@ -138,7 +138,15 @@
                                                             </div>
                                                     `)
                 });
-
+                connection.on("ReceiveCategoryCount", (value12) => {
+                    $("#ReceiveCategoryCount").text(value12);
+                });
+                connection.on("ReceiveProductCount", (value13) => {
+                    $("#ReceiveProductCount").text(value13);
+                });
+                connection.on("ReceiveNotificationCountByFalse", (value14) => {
+                    $("#ReceiveNotificationCountByFalse").text(value14);
+                });
             });
 
         </script>
@@ -241,7 +249,7 @@
                                     <div class="col-7 d-flex align-items-center">
                                         <div class="numbers">
                                             <p class="card-category">Kategori Sayısı</p>
-                                            <h4 class="card-title">30</h4>
+                                            <h4 class="card-title" id="ReceiveCategoryCount"></h4>
                                         </div>
                                     </div>
                                 </div>
@@ -256,7 +264,7 @@
                                     <div class="col-7 d-flex align-items-center">
                                         <div class="numbers">
                                             <p class="card-category">Ürün Sayısı</p>
-                                            <h4 class="card-title">25</h4>
+                                            <h4 class="card-title" id="ReceiveProductCount"></h4>
                                         </div>
                                     </div>
                                 </div>
@@ -270,8 +278,8 @@
                                     </div>
                                     <div class="col-7 d-flex align-items-center">
                                         <div class="numbers">
-                                            <p class="card-category">Rezervasyon Sayısı</p>
-                                            <h4 class="card-title">146</h4>
+                                            <p class="card-category">Okunmayan Bildirim </p>
+                                            <h4 class="card-title" id="ReceiveNotificationCountByFalse"></h4>
                                         </div>
                                     </div>
                                 </div>

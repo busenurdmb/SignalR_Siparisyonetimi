@@ -136,7 +136,7 @@
             $.ajax({
                 type: 'POST',
                 data: JSON.stringify({
-                    productId: id,
+                  
                     price: price,
                     count: 1, // Varsayılan olarak 1
                     totalPrice: price, // Varsayılan olarak 0
@@ -145,10 +145,10 @@
                 }),
                 url: "/Menu/AddBasket",
                 contentType: 'application/json',
-                success: function () {
+                success: function (response) {
                     swal(itemName, "Seçtiğiniz Ürün Sepete Eklendi!", "success");
                 },
-                error: function () {
+                error: function (xhr, status, error) {
                     swal("Hata", "Ürün sepete eklenirken bir hata oluştu!", "error");
                 }
             });

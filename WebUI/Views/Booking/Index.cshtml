@@ -30,6 +30,8 @@
 
 				connection.on("ReceiveBookingList", (value) => {
 					console.log(value);
+					var color = "";
+					
 					let tablehtml = `<table class=table mt-3><thead>
 												 <tr>
 												 <th scope="col">#</th>
@@ -45,16 +47,36 @@
 												 </thead>
 												 <tbody>`
 					$.each(value, (index, item) => {
+						if (item.description == "Rezervasyon Alındı"){
+							color = "badge badge-info"
+						}
+						if (item.description == "Rezervasyon Onaylandı") {
+							color = "badge badge-primary"
+						}
+						if (item.description == "Rezervasyon İptal Edildi") {
+							color = "badge badge-dark"
+						}
 						tablehtml += `<tr>
 												<th>${index + 1}</th>
 												<td>${item.name}</td>
 												<td>${item.phone}</td>
 												<td>${item.personCount}</td>
-												<td>${item.description}</td>
-												<td><a href="/Booking/DeleteBooking/${item.bookingID}" class="btn btn-outline-danger">Sil</a></td>
-												<td><a href="/Booking/UpdateBooking/${item.bookingID}" class="btn btn-outline-success">Güncelle</a></td>
-												<td><a href="/Booking/BookingStatusApproved/${item.bookingID}" class="btn btn-outline-info">Onayla</a></td>
-												<td><a href="/Booking/BookingStatusCancelled/${item.bookingID}" class="btn btn-outline-dark">İptal Et</a></td>
+												<td class="${color}">${item.description}</td>
+															<td><a href="/Booking/DeleteBooking/${item.bookingID}" class="btn btn-danger"><i class="la la-trash-o"></i>
+															</span>
+															<span class="text">Sil</span></a></a></td>
+															<td><a href="/Booking/UpdateBooking/${item.bookingID}" class="btn btn-success"><span class="icon text-white">
+																<i class="la la-edit"></i>
+															</span>
+															<span class="text">Güncelle</span></a></td>
+															<td><a href="/Booking/BookingStatusApproved/${item.bookingID}" class="btn btn-primary"><span class="icon text-white">
+																<i class="la la-check"></i>
+															</span>
+																		<span class="text">Onayla</span></a></td>
+															<td><a href="/Booking/BookingStatusCancelled/${item.bookingID}" class="btn btn-dark"><span class="icon text-white">
+																<i class="la la-close"></i>
+															</span>
+															<span class="text">İptal Et</span></a></td>
 												</tr>`
 					});
 					tablehtml += "</tbody></table>";

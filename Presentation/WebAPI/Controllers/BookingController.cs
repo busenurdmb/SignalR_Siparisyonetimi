@@ -1,9 +1,10 @@
-﻿using Application.Features.Mediator.Bookings.Commands.Create;
+﻿using Application.Features.Mediator.Bookings.Commands.BookingStatusApproved;
+using Application.Features.Mediator.Bookings.Commands.BookingStatusCancelled;
+using Application.Features.Mediator.Bookings.Commands.Create;
 using Application.Features.Mediator.Bookings.Commands.Delete;
 using Application.Features.Mediator.Bookings.Commands.Update;
 using Application.Features.Mediator.Bookings.Queries.GetById;
 using Application.Features.Mediator.Bookings.Queries.GetList;
-
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -57,6 +58,20 @@ namespace WebAPI.Controllers
         {
             DeleteBookingResponse response = await _mediator.Send(new DeleteBookingCommand(id));
 
+            return Ok(response);
+        }
+        [HttpGet("BookingStatusApproved/{id}")]
+        public async Task<IActionResult> BookingStatusApproved(int id)
+        {
+            BookingStatusApprovedCommand bookingStatusApprovedCommand = new BookingStatusApprovedCommand (){ BookingID = id };
+            BookingStatusApprovedResponse response = await _mediator.Send(bookingStatusApprovedCommand);
+            return Ok(response);
+        }
+        [HttpGet("BookingStatusCancelled/{id}")]
+        public async Task<IActionResult> BookingStatusCancelled(int id)
+        {
+            BookingStatusCancelledCommand bookingStatusCancelledCommand = new BookingStatusCancelledCommand() { BookingID = id };
+            BookingStatusCancelledResponse response = await _mediator.Send(bookingStatusCancelledCommand);
             return Ok(response);
         }
     }

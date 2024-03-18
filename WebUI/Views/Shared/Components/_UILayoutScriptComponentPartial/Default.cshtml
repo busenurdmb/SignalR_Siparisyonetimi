@@ -16,4 +16,80 @@
 <!-- Google Map -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
 </script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js"></script>
 <!-- End Google Map -->
+@* <script>
+    $(document).ready(function () {
+        $("#btnReservationNow").click(function (event) {
+            // Form submit olayını durdur
+            event.preventDefault();
+
+            var formData = $("#sendMessageForm").serialize();
+            var action = $("#sendMessageForm").attr('action');
+
+            if (!action) {
+                action = '/Default/Add';
+            }
+
+            // AJAX isteğini oluştur
+            $.ajax({
+                type: "POST",
+                url: action,
+                data: formData,
+                success: function (response) {
+                    // Rezervasyon başarılı olduğunda yapılacak işlemler
+                    console.log("Rezervasyon başarıyla oluşturuldu");
+                    console.log(response);
+
+                    // SweetAlert2 ile başarılı iletişim kutusu göster
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Rezervasyon Başarılı!',
+                        text: 'Rezervasyon talebiniz alınmıştır.'
+                    });
+                },
+                error: function (xhr, status, error) {
+                    // Hata olduğunda yapılacak işlemler
+                    console.log("Rezervasyon oluşturulurken bir hata oluştu");
+                    console.log(xhr.responseText);
+                    // Eğer gerekirse, hata mesajını kullanıcıya göstermek için burada bir işlem yapabilirsiniz.
+                }
+            });
+        });
+    });
+</script> *@
+<script>
+    $(document).ready(function () {
+        $('form.contactForm').submit(function (e) {
+            e.preventDefault(); // Formun normal submit işlemini engeller
+
+            var formData = $(this).serialize(); // Form verilerini alır
+
+            $.ajax({
+                type: "POST",
+                url: "/Default/Add", // Formun gönderileceği URL
+                data: formData, // Form verileri
+                success: function (response) {
+                    // Rezervasyon başarılı olduğunda yapılacak işlemler
+                    console.log("Mesaj başarıyla oluşturuldu");
+                    console.log(response);
+
+                    // SweetAlert2 ile başarılı iletişim kutusu göster
+                        Swal.fire({
+                        icon: 'success',
+                        title: 'Mesaj Başarılı!',
+                        text: 'Mesaj talebiniz alınmıştır.'
+                    });
+                },
+                error: function (xhr, status, error) {
+                    // Hata olduğunda yapılacak işlemler
+                    console.log("Rezervasyon oluşturulurken bir hata oluştu");
+                    console.log(xhr.responseText);
+                    // Eğer gerekirse, hata mesajını kullanıcıya göstermek için burada bir işlem yapabilirsiniz.
+                }
+             
+            });
+        });
+    });
+
+</script>

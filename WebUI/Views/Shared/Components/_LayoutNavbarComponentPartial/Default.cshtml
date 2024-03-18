@@ -33,8 +33,7 @@
 							<span class="block">
 							${value[i].description}
 							</span>
-							<span class="time">"${value[i].date}"</span>
-
+									<span class="time">${new Date(value[i].date).toLocaleDateString()}</span>
 							</div>
 							</a>
 							`)

@@ -10,9 +10,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Mediator.Notifications.Queries.GetAllNotificationByFalse
 {
-	internal class GetAllNotificationByFalseQuuery
-	{
-	}
+	
 	public class GetAllNotificationByFalseQuery : IRequest<List<GetAllNotificationByFalseResponse>>
 	{
 		public class GetAllNotificationByFalseQueryHandler : IRequestHandler<GetAllNotificationByFalseQuery, List<GetAllNotificationByFalseResponse>>

@@ -44,9 +44,11 @@ namespace Application.Features.Mediator.Baskets.Commands.Create
                 await _BasketRepository.CreateAsync(Basket);
 
                 // Oluşturulan hakkında yanıtını döndür
-                return _mapper.Map<CreatedBasketResponse>(Basket);
+                return  _mapper.Map<CreatedBasketResponse>(Basket);
 
             }
+
+            
         }
     }
 }

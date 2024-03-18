@@ -54,9 +54,9 @@ namespace WebAPI.Controllers
             return Ok(values);
         }
         [HttpPost]
-        public async Task<IActionResult> Add(CreatedBasketCommand createdBasketCommand)
+        public async Task<ActionResult> Add(CreatedBasketCommand createdBasketCommand)
         {
-            CreatedBasketResponse response = await _mediator.Send(createdBasketCommand);
+            CreatedBasketResponse response =await _mediator.Send(createdBasketCommand);
             return Ok(response);
         }
 

@@ -2,9 +2,11 @@
 using Newtonsoft.Json;
 using WebUI.Dtos.BookingDtos;
 using System.Text;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebUI.Controllers
 {
+    [AllowAnonymous]
     public class BookATableController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;

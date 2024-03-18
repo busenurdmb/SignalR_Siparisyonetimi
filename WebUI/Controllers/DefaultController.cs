@@ -1,13 +1,24 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Net.Http;
 using System.Text;
+using WebUI.Dtos.MessageDtos;
 
 namespace WebUI.Controllers
 {
+    [AllowAnonymous]
     public class DefaultController : Controller
     {
-        public IActionResult Index()
+		private readonly IHttpClientFactory _httpClientFactory;
+
+		public DefaultController(IHttpClientFactory httpClientFactory)
+		{
+			_httpClientFactory = httpClientFactory;
+		}
+
+		public IActionResult Index()
         {
             return View();
         }
@@ -16,18 +27,36 @@ namespace WebUI.Controllers
         {
             return PartialView();
         }
-        //[HttpPost]
-        //public async Task<IActionResult> SendMessage(CreateMessageDto createMessageDto)
-        //{
-        //    var client = _httpClientFactory.CreateClient();
-        //    var jsonData = JsonConvert.SerializeObject(createMessageDto);
-        //    StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-        //    var responseMessage = await client.PostAsync("https://localhost:7186/api/Message", stringContent);
-        //    if (responseMessage.IsSuccessStatusCode)
-        //    {
-        //        return RedirectToAction("Index");
-        //    }
-        //    return View();
-        //}
+		[HttpPost]
+		public async Task<JsonResult> Add(CreateMessageDto createMessageDto)
+		{
+			
+				var client = _httpClientFactory.CreateClient();
+				var jsonData = JsonConvert.SerializeObject(createMessageDto);
+				StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+				var responseMessage = await client.PostAsync("https://localhost:7291/api/Message", stringContent);
+				if (responseMessage.IsSuccessStatusCode)
+				{
+					return Json("OK"); // Başarılı bir şekilde eklendiğinde "OK" yanıtı döndürülür
+				}
+				
+				return Json("Model validation failed.");
+			}
+			// Eğer model geçersizse, hata mesajlarıyla birlikte hata yanıtı döndürülür
+			
+		
+		//[HttpPost]
+  //      public async Task<IActionResult> SendMessage(CreateMessageDto createMessageDto)
+  //      {
+  //          var client = _httpClientFactory.CreateClient();
+  //          var jsonData = JsonConvert.SerializeObject(createMessageDto);
+  //          StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+  //          var responseMessage = await client.PostAsync("https://localhost:7291/api/Message", stringContent);
+  //          if (responseMessage.IsSuccessStatusCode)
+  //          {
+  //              return RedirectToAction("Index");
+  //          }
+  //          return View();
+  //      }
     }
 }

@@ -36,43 +36,40 @@ namespace Persistence.Context
         public DbSet<Slider> Sliders { get; set; }
         public DbSet<Basket> Baskets { get; set; }
         public DbSet<Notification> Notifications { get; set; }
-        public DbSet<AppUser> AppUsers { get; set; }
-        public DbSet<AppRole> AppRoles { get; set; }
+        public DbSet<Message>Messages { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<IdentityUserLogin<int>>().HasKey(p => p.UserId);
-            modelBuilder.Entity<IdentityUserRole<int>>().HasKey(p => new { p.UserId, p.RoleId });
-            modelBuilder.Entity<IdentityUserToken<int>>().HasKey(p => new { p.UserId, p.LoginProvider, p.Name });
-            modelBuilder.Entity<Product>()
-                .Property(p => p.Price)
-                .HasColumnType("decimal(18,2)"); // Bu örnekte, decimal için 18 basamak ve 2 ondalık basamak kullanıldı.
-            modelBuilder.Entity<Order>()
-                .Property(p => p.TotalPrice)
-                .HasColumnType("decimal(18,2)");
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+           
+        //    modelBuilder.Entity<Product>()
+        //        .Property(p => p.Price)
+        //        .HasColumnType("decimal(18,2)"); // Bu örnekte, decimal için 18 basamak ve 2 ondalık basamak kullanıldı.
+        //    modelBuilder.Entity<Order>()
+        //        .Property(p => p.TotalPrice)
+        //        .HasColumnType("decimal(18,2)");
 
-            modelBuilder.Entity<OrderDetail>()
-               .Property(p => p.TotalPrice)
-               .HasColumnType("decimal(18,2)");
+        //    modelBuilder.Entity<OrderDetail>()
+        //       .Property(p => p.TotalPrice)
+        //       .HasColumnType("decimal(18,2)");
 
-            modelBuilder.Entity<OrderDetail>()
-                .Property(p => p.UnitPrice)
-                .HasColumnType("decimal(18,2)");
+        //    modelBuilder.Entity<OrderDetail>()
+        //        .Property(p => p.UnitPrice)
+        //        .HasColumnType("decimal(18,2)");
 
-            modelBuilder.Entity<MoneyCase>()
-                .Property(p => p.TotalAmount)
-                .HasColumnType("decimal(18,2)");
+        //    modelBuilder.Entity<MoneyCase>()
+        //        .Property(p => p.TotalAmount)
+        //        .HasColumnType("decimal(18,2)");
 
-            modelBuilder.Entity<Basket>()
-               .Property(p => p.TotalPrice)
-               .HasColumnType("decimal(18,2)"); modelBuilder.Entity<Basket>()
-               .Property(p => p.Count)
-               .HasColumnType("decimal(18,2)"); modelBuilder.Entity<Basket>()
-               .Property(p => p.Price)
-               .HasColumnType("decimal(18,2)");
+        //    modelBuilder.Entity<Basket>()
+        //       .Property(p => p.TotalPrice)
+        //       .HasColumnType("decimal(18,2)"); modelBuilder.Entity<Basket>()
+        //       .Property(p => p.Count)
+        //       .HasColumnType("decimal(18,2)"); modelBuilder.Entity<Basket>()
+        //       .Property(p => p.Price)
+        //       .HasColumnType("decimal(18,2)");
 
 
-        }
+        //}
 
     }
 }

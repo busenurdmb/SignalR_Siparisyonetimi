@@ -1,4 +1,6 @@
-﻿using Application.Features.Mediator.Bookings.Commands.Create;
+﻿using Application.Features.Mediator.Bookings.Commands.BookingStatusApproved;
+using Application.Features.Mediator.Bookings.Commands.BookingStatusCancelled;
+using Application.Features.Mediator.Bookings.Commands.Create;
 using Application.Features.Mediator.Bookings.Commands.Delete;
 using Application.Features.Mediator.Bookings.Commands.Update;
 using Application.Features.Mediator.Bookings.Queries.GetById;
@@ -14,6 +16,12 @@ namespace Application.Features.Mediator.Bookings.Profiles
         {
             CreateMap<Booking, CreatedBookingCommand>().ReverseMap();
             CreateMap<Booking, CreatedBookingResponse>().ReverseMap();
+
+            CreateMap<Booking, BookingStatusCancelledCommand>().ReverseMap();
+            CreateMap<Booking, BookingStatusCancelledResponse>().ReverseMap();
+
+            CreateMap<Booking, BookingStatusApprovedCommand>().ReverseMap();
+            CreateMap<Booking, BookingStatusApprovedResponse>().ReverseMap();
 
             CreateMap<Booking, UpdateBookingCommand>().ReverseMap();
             CreateMap<Booking, UpdateBookingResponse>().ReverseMap();

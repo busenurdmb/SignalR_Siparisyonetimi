@@ -128,6 +128,15 @@ namespace WebAPI.Hubs
             var value11 = await _mediator.Send(new GetTotalPriceBySaladCategoryQuery());
             await Clients.All.SendAsync("ReceiveTotalPriceBySaladCategory", value11.pricesalad);
 
+            var value12 = await _mediator.Send(new GetCategoryCountQuery());
+            await Clients.All.SendAsync("ReceiveCategoryCount", value12.categorycount);
+
+            var value13 = await _mediator.Send(new GetProductCountQuery());
+            await Clients.All.SendAsync("ReceiveProductCount", value13.count);
+
+            var values14 = await _mediator.Send(new NotificationCountByStatusFalseQuery());
+            await Clients.All.SendAsync("ReceiveNotificationCountByFalse", values14.count);
+
         }
         public async Task GetBookingList()
         {

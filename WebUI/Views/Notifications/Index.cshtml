@@ -42,19 +42,19 @@
 									<tr>
 										<th>@count</th>
 										<td>@item.Description</td>
-										<td>@item.Date</td>
+										<td>@(((DateTime)item.Date).ToShortDateString())</td>
                                         @if(@item.Status==true){
 										<td>
-											<span class="badge badge-warning">okundu</span>
+											<span class="badge badge-primary">okundu</span>
                                         </td>
 										}
 										else{
 										<td>
-											<span class="badge badge-default">okunmadı</span>
+											<span class="badge badge-dark">okunmadı</span>
 										</td>
 										}
 										<td>
-											<a href="/Notifications/NotificationStatusChangeToTrue/@item.NotificationID" class="btn btn-warning">
+											<a href="/Notifications/NotificationStatusChangeToTrue/@item.NotificationID" class="btn btn-primary">
 												<span class="icon text-white">
 													<i class="la la-check"></i>
 												</span>
@@ -62,7 +62,7 @@
 											</a>
 										</td>
 										<td>
-											<a href="/Notifications/NotificationStatusChangeToFalse/@item.NotificationID" class="btn btn-secondary">
+											<a href="/Notifications/NotificationStatusChangeToFalse/@item.NotificationID" class="btn btn-dark">
 												<span class="icon text-white">
 													<i class="la la-exclamation-circle"></i>
 												</span>

@@ -9,5 +9,8 @@ namespace Application.Repositories
 {
     public interface IDiscountRepository : IEntityRepository<Discount>
     {
-    }
+		Task ChangeStatusToTrue(int id);
+		Task ChangeStatusToFalse(int id);
+		List<Discount> GetListByStatusTrue();
+	}
 }

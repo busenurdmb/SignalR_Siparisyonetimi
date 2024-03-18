@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
 using WebUI.Dtos.BasketDtos;
@@ -6,6 +7,7 @@ using WebUI.Dtos.ProductDtos;
 
 namespace WebUI.Controllers
 {
+    [AllowAnonymous]
     public class MenuController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
@@ -21,14 +23,11 @@ namespace WebUI.Controllers
             var values = JsonConvert.DeserializeObject<List<ResultProductDto>>(jsonData);
             return View(values);
         }
-  
-      
-        [HttpPost]
         public async Task<IActionResult> AddBasket([FromBody] CreateBasketDto createBasketDto)
         {
-            // createBasketDto doğrudan JavaScript kodundan JSON olarak gönderilecek
-
-               // HttpClient oluşturulur
+            try
+            {
+                // HttpClient oluşturulur
                 using var client = _httpClientFactory.CreateClient();
 
                 // createBasketDto JSON formatına dönüştürülür
@@ -49,10 +48,18 @@ namespace WebUI.Controllers
                 else
                 {
                     // Başarısızsa, hata mesajı döndürülür
-                    return Json(new { success = false, message = "Sepete ekleme başarısız oldu." });
+                    return Json(new { error = false, message = "Sepete ekleme başarısız oldu." });
                 }
-            
+            }
+            catch (Exception ex)
+            {
+                // İstek sırasında bir hata oluştuğunda, hata mesajını döndür
+                return Json(new { error = true, message = ex.Message });
+            }
         }
+
+
+        
 
     }
 }

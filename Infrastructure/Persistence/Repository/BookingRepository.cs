@@ -14,5 +14,19 @@ namespace Persistence.Repository
         public BookingRepository(SignalRContext context) : base(context)
         {
         }
+
+        public async Task BookingStatusApproved(int id)
+        {
+            var value = await _context.Bookings.FindAsync(id);
+            value.Description = "Rezervasyon Onaylandı";
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task BookingStatusCancelled(int id)
+        {
+            var value = await _context.Bookings.FindAsync(id);
+            value.Description = "Rezervasyon İptal Edildi";
+            await _context.SaveChangesAsync();
+        }
     }
 }

@@ -83,7 +83,7 @@ namespace WebAPI.Controllers
             return Ok(response);
           
         }
-        [HttpGet("NotificationStatusChangeToFalse/{id}")]
+        [HttpGet("NotificationStatusChangeToFalse")]
         public async Task<IActionResult> NotificationStatusChangeToFalse(int id)
         {
             NotificationStatusChangeToFalseCommand notificationStatusChangeToFalseCommand = new() { NotificationID = id };
