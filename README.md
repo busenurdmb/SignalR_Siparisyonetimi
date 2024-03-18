@@ -6,8 +6,7 @@ Onion Architecture mimari yapısı ve Repository design pattern ,CQRS ,Mediator 
 
 # Projeye Genel Bakış
 
-- 🖱️ Admin Paneli: CRUD işlemlerine sahip olan admin paneli, Adminin  rezervasyonları onaylama veya iptal etme,rezervasyon istatistik ,bildirim kısımlarını SignalR ile anlık
-- olarak çekme aktif ve pasif yapabilme,mail gönderebilme ayarlar ,hakkımda,kategoriler vb. kolayca girebilecekleri ve güncelleyebilecekleri bir ortam sağlar.
+- 🖱️ Admin Paneli: CRUD işlemlerine sahip olan admin paneli, Adminin  rezervasyonları onaylama veya iptal etme,rezervasyon istatistik ,bildirim kısımlarını SignalR ile anlık olarak çekme aktif ve pasif yapabilme,mail gönderebilme ayarlar ,hakkımda,kategoriler vb. kolayca girebilecekleri ve güncelleyebilecekleri bir ortam sağlar.
 - 👤 Kullanıcı Arayüzü: Şık ve duyarlı bir tasarım, ziyaretçilere yemek sipariş etmek, admin ile mesajlaşmak,rezervasyon oluşturmak,be özel mesaj göndermek için  için gerekli işlemleri etkileyici bir şekilde sunuyor.
 
 
